@@ -1,5 +1,10 @@
 package com.mnkadafi.myself_akb.ui;
 
+//<!--10 Mei 2022-->
+//<!--10119197-->
+//<!--Mochamad Nurkhayal Kadafi-->
+//<!--IF-5-->
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
