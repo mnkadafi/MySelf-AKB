@@ -25,4 +25,8 @@
     <string name="title_profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_findme">Find Me</string>
+    <string name="latitude">-6.889105</string>
+    <string name="longitude">107.621710</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoibW5rYWRhZmkiLCJhIjoiY2wzYmNreTNpMDZhajNpbzI1OXIxdGc0OSJ9.Z5utRR5YyOlXMCjdRqnRtw</string>
 </resources>

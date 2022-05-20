@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.text.util.Linkify;
@@ -18,6 +19,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mapbox.maps.MapView;
+import com.mapbox.maps.Style;
+
 import com.mnkadafi.myself_akb.AboutDialog;
 import com.mnkadafi.myself_akb.R;
 
@@ -25,12 +29,15 @@ public class ProfileFragment extends Fragment {
 
     ImageView ivFacebook, ivInstagram, ivGithub, ivWhatsapp, ivGmail, ivMap;
     TextView tvAbout;
+    MapView mapView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        mapView = (MapView) root.findViewById(R.id.mapView);
+        mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS);
 
         ivFacebook = root.findViewById(R.id.iv_facebook);
         ivInstagram = root.findViewById(R.id.iv_instagram);
@@ -107,7 +114,7 @@ public class ProfileFragment extends Fragment {
                 Intent map = new Intent();
                 map.setAction(Intent.ACTION_VIEW);
                 map.addCategory(Intent.CATEGORY_BROWSABLE);
-                map.setData(Uri.parse("https://goo.gl/maps/XSukPyqHxifGUYZu9"));
+                map.setData(Uri.parse("https://goo.gl/maps/GZYhexQT7orbBbaZ7"));
                 startActivity(map);
             }
         });
@@ -122,5 +129,29 @@ public class ProfileFragment extends Fragment {
         });
 
         return root;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mapView.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mapView.onStop();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mapView.onDestroy();
     }
 }
